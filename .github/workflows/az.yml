@@ -1,0 +1,45 @@
+name: Daily AZ Foreclosure Scraper
+
+on:
+  schedule:
+    # Runs daily at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Scraper
+        env:
+          cookies: ${{ secrets.COOKIES }}
+          headers: ${{ secrets.HEADERS }}
+        run: |
+          python az.py
+
+      - name: Save CSV Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: az-foreclosure-data-${{ github.run_id }}
+          path: az_top_foreclosure.csv
+          retention-days: 30
+
+      - name: Save Logs Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: az-scraper-log-${{ github.run_id }}
+          path: az_data.log
+          retention-days: 30
