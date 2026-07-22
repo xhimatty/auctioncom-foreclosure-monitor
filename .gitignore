@@ -16,7 +16,6 @@ __pycache__/
 # Data files - your scraped output, don't want raw/full datasets committed
 *.csv
 !sample_*.csv
-sample_az_top_foreclosure.csv
 
 # Logs (you use logging with append filemode per your notifications.py setup)
 *.log
