@@ -100,7 +100,7 @@ def top_foreclosure(response):
         seller_value = auction.get("valuation", {}).get("seller_current_value_amount", "")
 
         # collateral is a list of dicts tagged by "type" (rental / composite) - pull each out by type
-        collateral_summary = auction.get("external_information", {}).get("collateral", {}).get("summary", [])
+        collateral_summary = ((auction.get("external_information") or {}).get("collateral") or {}).get("summary", [])
         rental_estimate = next((c.get("estimated", "") for c in collateral_summary if c.get("type") == "rental"), "")
         composite_estimate = next((c.get("estimated", "") for c in collateral_summary if c.get("type") == "composite"), "")
 
