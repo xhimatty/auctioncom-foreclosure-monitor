@@ -1,4 +1,4 @@
-# Auction.com Foreclosure Monitor
+# Auction.com Foreclosure Monitoring System
 
 Automatically extracts real-time active foreclosure listings from Auction.com and exports the results to a structured CSV file daily for monitoring.
 
@@ -22,7 +22,7 @@ Automatically extracts real-time active foreclosure listings from Auction.com an
 
 * [GitHub Actions](#github-actions)
 
-* [System Notes](#system-notes)
+* [Notes](#notes)
 
 
 ## Overview
