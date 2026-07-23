@@ -27,11 +27,11 @@ Automatically extracts real-time active foreclosure listings from Auction.com an
 
 ## Overview
 
-Auction.com updates foreclosure listings throughout the day as properties are scheduled, sold, postponed, or removed. To track these changes reliably without relying on brittle browser automation, this system analyses network traffic to identify the direct API endpoints used by the website, collect the data directly, and exports daily structured CSV files for continuous monitoring and status tracking.
+Auction.com updates foreclosure listings constantly as auctions are scheduled, removed, postponed, canceled, or sold. To track these changes reliably without relying on the overhead and fragility of browser automation and HTML parsing, the system analyses network traffic to identify the direct API endpoints used by the website, extracts the listing records directly, and exports daily structured CSV files for continuous monitoring and status tracking.
 
 ## Why This Project?
 
-Checking foreclosure listings manually quickly becomes repetitive, especially when new listings appear and existing ones change status.
+Checking foreclosure listings manually quickly becomes repetitive, especially when new listings appear and existing ones change status, often leading to missed opportunities.
 
 This system automates that process by scraping listing information and exporting it into a usable format that can be searched, filtered, or compared between runs.
 
